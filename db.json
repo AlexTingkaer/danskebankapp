@@ -1,0 +1,14 @@
+{
+  "person": {
+      "val1": "",
+      "val2": ""
+  },
+  "facility": {
+      "val3": "",
+      "val4": ""
+  },
+  "exposure": {
+      "val5": "",
+      "val6": ""
+  }
+}

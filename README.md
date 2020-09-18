@@ -1,4 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Danske Bank app bootstrapped with create-react-app 
+The app has been implemented with `react`, `graphql`, `apollo-server` and `json-server`.
+Tasks in this project
+1. Some graphical interface resemling Danske Bank look & feel.
+2. An input text box that take in a numeric value between 1 and 10 characters
+3. A button to execute the GraphQL request
+4. An overlay to display the return values from the GraphQL request/processed values
+5. A GraphQL back-end
+
+In the following I have described my thoughts on each task and listed subtasks for completion
+
+# Task 1 - Graphical interface
+Provided with the assignment was an image with various design elements from Danske Bank.
+I decided to style the main elements of the application: input and button
+Inspired by the colors and layout I made the elements resemble Danske Bank. I was able to implement the size, padding, alignment and colors but I didn't have the font, which, in my eyes, is the
+
+## Subtasks
+* Initialise project with create-react-app
+* Implement Danske Bank styling
+
+# Task 2 - Input
+## Subtasks
+* Wrap input element in component
+* Minimal validation
+* Implement Danske Bank design
+
+
+# Task 3 - Button
+## Subtasks
+* Wrap button element in component
+* Implement Danske Bank design
+* Executes the GraphQL request
+
+# Task 4 - Overlay
+Did not complete
+
+# Task 5 - GraphQL Back-end
+This task was my biggest concern. I have both heard and read about GraphQL but since I haven't really worked with GraphQL before I needed to read up on this first. This has also been the task on which I spent majority of my effort.
+Unfortunately I wasn't able to complete this task. I have some pieces of the system but I haven't put all the pieces together. 
+
+## Subtasks
+* Install GraphQL
+* Install Apollo Server
+* Setup Mock data
+* Handle Request
+
+A typical usecase for GraphQL is to front a RESTful API so I decided to use a JSON server as a data source.
+
+### Schema
+I defined the schema for `person`, `facility` and `exposure`. 
+
+### Resolvers
+
 
 ## Available Scripts
 
@@ -17,52 +69,10 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### `npm json:server`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Launch mock JSON server. Configured with `person`, `facility` and `exposure` routes. Only static data is present.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### `npm apollo:server`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Launch Apollo Server. Schema with `person`, `facility` and `exposure` combined with resolvers for returning the values.
