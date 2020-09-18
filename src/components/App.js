@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
-import '../styles/App.css';
 import { graphql } from 'graphql';
-import { schema, resolvers } from '../graphql/schema';
+import gql from "graphql-tag";
+
+import '../styles/App.css';
 
 import Button from './Button';
 import Input from './Input';
 
-  const query = `
-    query { 
-      val1
-      val2
-    }
-  `;
+const QUERY = gql`
+{
+  person(input: 1) {
+    val1
+    val2
+  }
+  facility(val1: 2) {
+    val3
+    val4
+  }
+  exposure(val2: 5) {
+    val5
+  }
+}
+`;
 
 function App() {
   // Setup state
@@ -21,10 +31,7 @@ function App() {
   const handleMagic = () => {
     console.log(inputValue)
 
-    graphql(schema, query, resolvers)
-    .then(result => {
-      console.log(result);
-    });
+    // TODO: Send GraphQL request
   }
 
   // Method for input

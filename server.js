@@ -13,54 +13,56 @@ const typeDefs = gql`
   }
   type Exposure {
     val5: String
-    val6: String
   }
   
   type Query {
-    person: Person
-    facility: Facility
-    exposure: Exposure
+    person(input: Int!): Person
+    facility(val1: Int!): Facility
+    exposure(val2: Int!): Exposure
   }
 `;
 
-const person = 
-    {
-        val1: "",
-        val2: "",
-    };
-    const facility = 
-    {
-        val3: "",
-        val4: "",
-    };
+const person =
+{
+  val1: "",
+  val2: "",
+};
+const facility =
+{
+  val3: "",
+  val4: "",
+};
 
-    const exposure = 
-    {
-        val5: "",
-        val6: "",
-    };
+const exposure =
+{
+  val5: ""
+};
 
 
-// Resolvers define the technique for fetching the types defined in the
-// schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
-    Query: {
-        person: () => {
-          console.log("resolver:person")
-          return person
-        },
-        facility: () => {
-          console.log("resolver:facility")
-          return facility
-        },
-        exposure: () => {
-          console.log("resolver:exposure")
-          return exposure
-        },
+  Query: {
+    person: (args) => {
+      console.log("resolver:person")
+      console.log(args)
+      // TODO: nest resolve to facility, pass on the val1 from person
+      return person
     },
+    facility: (args) => {
+      console.log("resolver:facility")
+      console.log(args)
+      // TODO: nest resolve to facility, pass on the val1
+      return facility
+    },
+    exposure: (args) => {
+      console.log("resolver:exposure")
+      console.log(args)
+      // TODO: nest resolve to facility, pass on the val1
+      return exposure
+    },
+  },
 };
 const server = new ApolloServer({ typeDefs, resolvers });
 
 server.listen().then(({ url }) => {
-    console.log(`Server ready at ${url}`);
+  console.log(`Server ready at ${url}`);
 });
